@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Choose correct java execution command
+if [ -n "$JAVA_HOME" ] ; then
+    JAVACMD="$JAVA_HOME/bin/java"
+else
+    JAVACMD="java"
+fi
+
+exec "$JAVACMD" -jar "$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar" "$@"
